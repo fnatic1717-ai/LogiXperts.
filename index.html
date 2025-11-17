@@ -342,13 +342,13 @@
       <div class="brand">
         <div class="badge-logo">Lx</div>
         <div class="brand-text">
-          <h1>Logixperts</h1>
-          <span data-i18n="header.subtitle">Smart Load – Driver Portal</span>
+          <h1>LOGIXPERTS</h1>
+          <span id="hdr_sub">SMART LOAD – DRIVER PORTAL</span>
         </div>
       </div>
 
       <div class="header-right">
-        <span class="tag-pill" data-i18n="header.tag">
+        <span class="tag-pill" id="hdr_tag">
           Driver & Admin Access
         </span>
 
@@ -367,8 +367,8 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title" data-i18n="landing.title">Who is using this portal?</div>
-              <div class="card-sub" data-i18n="landing.subtitle">Choose your role to continue.</div>
+              <div class="card-title" id="land_title">Who is using this portal?</div>
+              <div class="card-sub" id="land_sub">Choose your role to continue.</div>
             </div>
           </div>
 
@@ -376,22 +376,22 @@
 
             <!-- ADMIN -->
             <div class="option-card">
-              <div class="option-title" data-i18n="landing.adminTitle">I am an Admin</div>
+              <div class="option-title" id="land_admin_title">I am an Admin</div>
               <button class="btn btn-secondary"
                 onclick="goToAdmin()"
-                data-i18n="landing.adminButton">
+                id="land_admin_btn">
                 Go to Admin Platform
               </button>
             </div>
 
             <!-- DRIVER -->
             <div class="option-card">
-              <div class="option-title" data-i18n="landing.driverTitle">
+              <div class="option-title" id="land_driver_title">
                 I am a Driver
               </div>
               <button class="btn btn-primary"
                 onclick="switchView('view-driver-login')"
-                data-i18n="landing.driverButton">
+                id="land_driver_btn">
                 Continue as Driver
               </button>
             </div>
@@ -404,27 +404,27 @@
         <div class="card">
           <div class="card-header">
             <div>
-              <div class="card-title" data-i18n="driverLogin.title">Driver Login</div>
-              <div class="card-sub" data-i18n="driverLogin.subtitle">Enter your Driver ID and Company Code.</div>
+              <div class="card-title" id="login_title">Driver Login</div>
+              <div class="card-sub" id="login_sub">Enter your Driver ID and Company Code.</div>
             </div>
-            <button class="btn btn-ghost btn-sm" onclick="switchView('view-landing')" data-i18n="driverLogin.back">
+            <button class="btn btn-ghost btn-sm" onclick="switchView('view-landing')" id="login_back">
               ⬅ Back
             </button>
           </div>
 
           <form class="form-grid" onsubmit="event.preventDefault(); driverLogin();">
             <div class="field">
-              <label for="driverId" data-i18n="driverLogin.driverIdLabel">Driver ID</label>
+              <label for="driverId" id="login_driverId_label">Driver ID</label>
               <input id="driverId" type="text" placeholder="e.g. 1023" />
             </div>
 
             <div class="field">
-              <label for="companyCode" data-i18n="driverLogin.companyCodeLabel">Company Code</label>
+              <label for="companyCode" id="login_company_label">Company Code</label>
               <input id="companyCode" type="text" placeholder="e.g. LXPRT" />
             </div>
 
             <button class="btn btn-primary" type="submit"
-              data-i18n="driverLogin.button">
+              id="login_btn">
               Login as Driver
             </button>
 
@@ -447,7 +447,7 @@
 
               <button class="btn btn-ghost btn-sm"
                 onclick="driverLogout()"
-                data-i18n="driverDashboard.logout">
+                id="dash_logout">
                 Logout
               </button>
             </div>
@@ -460,7 +460,7 @@
 
               <div style="margin-top:10px;">
                 <div style="font-size:13px;font-weight:600;margin-bottom:3px;"
-                  data-i18n="driverDashboard.assignmentTitle">
+                  id="dash_assign_title">
                   Current Assignment
                 </div>
                 <div style="font-size:13px;color:var(--muted);" id="currentAssignment">
@@ -471,14 +471,14 @@
               <div style="margin-top:10px;">
                 <button class="btn btn-secondary btn-sm"
                   onclick="markArrived()"
-                  data-i18n="driverDashboard.markArrived">
+                  id="dash_btn_arrived">
                   Mark as Arrived at Location
                 </button>
 
                 <button class="btn btn-secondary btn-sm"
                   onclick="markLoaded()"
                   style="margin-inline-start:6px;"
-                  data-i18n="driverDashboard.markLoaded">
+                  id="dash_btn_loaded">
                   Confirm Loading Complete
                 </button>
               </div>
@@ -492,10 +492,10 @@
           <div class="card">
             <div class="card-header">
               <div>
-                <div class="card-title" data-i18n="driverDashboard.routeTitle">
+                <div class="card-title" id="dash_route_title">
                   Today's Route & Instructions
                 </div>
-                <div class="card-sub" data-i18n="driverDashboard.routeSubtitle">
+                <div class="card-sub" id="dash_route_sub">
                   Simple guidance from operations — where to go and what to do.
                 </div>
               </div>
@@ -505,7 +505,7 @@
 
             <p class="hint"
               style="margin-top:6px;"
-              data-i18n="driverDashboard.note">
+              id="dash_note">
               This driver view is a simple prototype. Operations can update instructions per driver.
             </p>
           </div>
@@ -518,348 +518,374 @@
     <!-- FOOTER -->
     <footer id="footerBox" class="footer-left">
       <div class="support-box">
-        <h3 data-i18n="support.title">Customer Support</h3>
-        <p>📞 <span data-i18n="support.phoneLabel">Phone:</span> +966 55 555 5555</p>
-        <p>📧 <span data-i18n="support.emailLabel">Email:</span> support@logixperts.com</p>
-        <p>📠 <span data-i18n="support.faxLabel">Fax:</span> 011-1234567</p>
+        <h3 id="sup_title">Customer Support</h3>
+        <p>📞 <span id="sup_phone_label">Phone:</span> +966 55 555 5555</p>
+        <p>📧 <span id="sup_email_label">Email:</span> support@logixperts.com</p>
+        <p>📠 <span id="sup_fax_label">Fax:</span> 011-1234567</p>
       </div>
 
       <div class="footer-brand">
         <span>Logixperts</span> ·
-        <span data-i18n="footer.portal">Driver Portal</span> ·
+        <span id="foot_portal">Driver Portal</span> ·
         Naqlthon 4
       </div>
     </footer>
 
   </div>
 
-
 <script>
-/* ========= TRANSLATIONS ========= */
-const translations = {
-  en: {
-    "header.subtitle": "Smart Load – Driver Portal",
-    "header.tag": "Driver & Admin Access",
+  // ================= DATA =================
+  var translations = {
+    en: {
+      hdr_sub: "SMART LOAD – DRIVER PORTAL",
+      hdr_tag: "Driver & Admin Access",
 
-    "landing.title": "Who is using this portal?",
-    "landing.subtitle": "Choose your role to continue.",
-    "landing.adminTitle": "I am an Admin",
-    "landing.driverTitle": "I am a Driver",
-    "landing.adminButton": "Go to Admin Platform",
-    "landing.driverButton": "Continue as Driver",
+      land_title: "Who is using this portal?",
+      land_sub: "Choose your role to continue.",
+      land_admin_title: "I am an Admin",
+      land_driver_title: "I am a Driver",
+      land_admin_btn: "Go to Admin Platform",
+      land_driver_btn: "Continue as Driver",
 
-    "driverLogin.title": "Driver Login",
-    "driverLogin.subtitle": "Enter your Driver ID and Company Code.",
-    "driverLogin.back": "⬅ Back",
-    "driverLogin.driverIdLabel": "Driver ID",
-    "driverLogin.companyCodeLabel": "Company Code",
-    "driverLogin.button": "Login as Driver",
-    "driverLogin.errorMissing": "Please enter both Driver ID and Company Code.",
-    "driverLogin.genericInfo": "Logged in as generic driver (demo).",
+      login_title: "Driver Login",
+      login_sub: "Enter your Driver ID and Company Code.",
+      login_back: "⬅ Back",
+      login_driverId_label: "Driver ID",
+      login_company_label: "Company Code",
+      login_btn: "Login as Driver",
+      login_error_missing: "Please enter both Driver ID and Company Code.",
+      login_generic: "Logged in as generic driver (demo).",
 
-    "driverDashboard.logout": "Logout",
-    "driverDashboard.assignmentTitle": "Current Assignment",
-    "driverDashboard.statusReady": "✅ Status: Ready for assignment",
-    "driverDashboard.statusArrived": "🟡 Status: Arrived at location, waiting for loading",
-    "driverDashboard.statusLoaded": "✅ Status: Loaded – ready to depart",
-    "driverDashboard.routeTitle": "Today's Route & Instructions",
-    "driverDashboard.routeSubtitle": "Simple guidance from operations — where to go and what to do.",
-    "driverDashboard.markArrived": "Mark as Arrived at Location",
-    "driverDashboard.markLoaded": "Confirm Loading Complete",
-    "driverDashboard.note": "This driver view is a simple prototype. Operations can update instructions per driver.",
-    "driverDashboard.msgArrived": "Arrival confirmed. Dispatch will see this status.",
-    "driverDashboard.msgLoaded": "Loading confirmed. You are ready to depart.",
+      dash_logout: "Logout",
+      dash_assign_title: "Current Assignment",
+      dash_status_ready: "✅ Status: Ready for assignment",
+      dash_status_arrived: "🟡 Status: Arrived at location, waiting for loading",
+      dash_status_loaded: "✅ Status: Loaded – ready to depart",
+      dash_route_title: "Today's Route & Instructions",
+      dash_route_sub: "Simple guidance from operations — where to go and what to do.",
+      dash_btn_arrived: "Mark as Arrived at Location",
+      dash_btn_loaded: "Confirm Loading Complete",
+      dash_note: "This driver view is a simple prototype. Operations can update instructions per driver.",
+      dash_msg_arrived: "Arrival confirmed. Dispatch will see this status.",
+      dash_msg_loaded: "Loading confirmed. You are ready to depart.",
+      dash_welcome_prefix: "Welcome, ",
+      dash_driver_info: "Driver ID: ",
+      dash_company_info: " · Company: ",
+      dash_truck_info: " · Truck: ",
+      dash_no_assign: "No active assignment yet. Please wait for dispatch instructions.",
+      dash_assign_text: "Next location: {city}. Instructions: {note}",
 
-    "timeline.step1.label": "1. Go to:",
-    "timeline.step1.desc": "Follow dispatch instructions for this location.",
-    "timeline.step2.label": "2. Confirm arrival",
-    "timeline.step2.desc": "Use \"Mark as Arrived\" when you reach the location.",
-    "timeline.step3.label": "3. Confirm loading",
-    "timeline.step3.desc": "Use \"Confirm Loading Complete\" after finishing loading.",
+      tl1_label: "1. Go to:",
+      tl1_desc: "Follow dispatch instructions for this location.",
+      tl2_label: "2. Confirm arrival",
+      tl2_desc: "Use \"Mark as Arrived\" when you reach the location.",
+      tl3_label: "3. Confirm loading",
+      tl3_desc: "Use \"Confirm Loading Complete\" after finishing loading.",
 
-    "footer.portal": "Driver Portal",
+      sup_title: "Customer Support",
+      sup_phone_label: "Phone:",
+      sup_email_label: "Email:",
+      sup_fax_label: "Fax:",
+      foot_portal: "Driver Portal"
+    },
 
-    "driverDashboard.welcome": "Welcome, ",
-    "driverDashboard.driverInfoPrefix": "Driver ID: ",
-    "driverDashboard.companyInfoPrefix": " · Company: ",
-    "driverDashboard.truckPrefix": " · Truck: ",
-    "driverDashboard.noAssignment": "No active assignment yet. Please wait for dispatch instructions.",
-    "driverDashboard.assignmentText": "Next location: {city}. Instructions: {note}",
+    ar: {
+      hdr_sub: "SMART LOAD – بوابة السائق",
+      hdr_tag: "دخول الإداري والسائق",
 
-    "support.title": "Customer Support",
-    "support.phoneLabel": "Phone:",
-    "support.emailLabel": "Email:",
-    "support.faxLabel": "Fax:"
-  },
+      land_title: "من يستخدم هذه البوابة؟",
+      land_sub: "اختر الدور المناسب للمتابعة.",
+      land_admin_title: "أنا إداري",
+      land_driver_title: "أنا سائق",
+      land_admin_btn: "دخول لوحة الإدارة",
+      land_driver_btn: "المتابعة كسائق",
 
-  ar: {
-    "header.subtitle": "Smart Load – بوابة السائق",
-    "header.tag": "دخول الإداري والسائق",
+      login_title: "تسجيل دخول السائق",
+      login_sub: "أدخل رقم السائق وكود الشركة.",
+      login_back: "⬅ رجوع",
+      login_driverId_label: "رقم السائق",
+      login_company_label: "كود الشركة",
+      login_btn: "تسجيل الدخول كسائق",
+      login_error_missing: "الرجاء إدخال رقم السائق وكود الشركة.",
+      login_generic: "تم تسجيل الدخول كسائق تجريبي.",
 
-    "landing.title": "من يستخدم هذه البوابة؟",
-    "landing.subtitle": "اختر الدور المناسب للمتابعة.",
-    "landing.adminTitle": "أنا إداري",
-    "landing.driverTitle": "أنا سائق",
-    "landing.adminButton": "دخول لوحة الإدارة",
-    "landing.driverButton": "المتابعة كسائق",
+      dash_logout: "تسجيل خروج",
+      dash_assign_title: "الرحلة الحالية",
+      dash_status_ready: "✅ الحالة: جاهز لاستلام رحلة",
+      dash_status_arrived: "🟡 الحالة: وصلت إلى الموقع وأنتظر التحميل",
+      dash_status_loaded: "✅ الحالة: تم التحميل – جاهز للمغادرة",
+      dash_route_title: "مسار اليوم والتعليمات",
+      dash_route_sub: "إرشادات بسيطة من العمليات — إلى أين تذهب وماذا تفعل.",
+      dash_btn_arrived: "تأكيد الوصول للموقع",
+      dash_btn_loaded: "تأكيد إتمام التحميل",
+      dash_note: "هذه واجهة تجريبية بسيطة، ويمكن للإدارة تحديث التعليمات لكل سائق.",
+      dash_msg_arrived: "تم تأكيد الوصول، سيتم عرض الحالة لقسم العمليات.",
+      dash_msg_loaded: "تم تأكيد التحميل، يمكنك المغادرة الآن.",
+      dash_welcome_prefix: "مرحبًا، ",
+      dash_driver_info: "رقم السائق: ",
+      dash_company_info: " · الشركة: ",
+      dash_truck_info: " · الشاحنة: ",
+      dash_no_assign: "لا توجد رحلة مفعّلة حاليًا، يرجى انتظار توجيهات قسم العمليات.",
+      dash_assign_text: "الوجهة التالية: {city}. التعليمات: {note}",
 
-    "driverLogin.title": "تسجيل دخول السائق",
-    "driverLogin.subtitle": "أدخل رقم السائق وكود الشركة.",
-    "driverLogin.back": "⬅ رجوع",
-    "driverLogin.driverIdLabel": "رقم السائق",
-    "driverLogin.companyCodeLabel": "كود الشركة",
-    "driverLogin.button": "تسجيل الدخول كسائق",
-    "driverLogin.errorMissing": "الرجاء إدخال رقم السائق وكود الشركة.",
-    "driverLogin.genericInfo": "تم تسجيل الدخول كسائق تجريبي.",
+      tl1_label: "1. التوجّه إلى:",
+      tl1_desc: "اتبع تعليمات قسم العمليات لهذا الموقع.",
+      tl2_label: "2. تأكيد الوصول",
+      tl2_desc: "استخدم زر \"تأكيد الوصول\" عند الوصول للموقع.",
+      tl3_label: "3. تأكيد التحميل",
+      tl3_desc: "استخدم زر \"تأكيد إتمام التحميل\" بعد الانتهاء.",
 
-    "driverDashboard.logout": "تسجيل خروج",
-    "driverDashboard.assignmentTitle": "الرحلة الحالية",
-    "driverDashboard.statusReady": "✅ الحالة: جاهز لاستلام رحلة",
-    "driverDashboard.statusArrived": "🟡 الحالة: وصلت إلى الموقع وأنتظر التحميل",
-    "driverDashboard.statusLoaded": "✅ الحالة: تم التحميل – جاهز للمغادرة",
-    "driverDashboard.routeTitle": "مسار اليوم والتعليمات",
-    "driverDashboard.routeSubtitle": "إرشادات بسيطة من العمليات — إلى أين تذهب وماذا تفعل.",
-    "driverDashboard.markArrived": "تأكيد الوصول للموقع",
-    "driverDashboard.markLoaded": "تأكيد إتمام التحميل",
-    "driverDashboard.note": "هذه واجهة تجريبية بسيطة، ويمكن للإدارة تحديث التعليمات لكل سائق.",
-    "driverDashboard.msgArrived": "تم تأكيد الوصول، سيتم عرض الحالة لقسم العمليات.",
-    "driverDashboard.msgLoaded": "تم تأكيد التحميل، يمكنك المغادرة الآن.",
+      sup_title: "خدمة العملاء",
+      sup_phone_label: "الهاتف:",
+      sup_email_label: "البريد الإلكتروني:",
+      sup_fax_label: "الفاكس:",
+      foot_portal: "بوابة السائق"
+    }
+  };
 
-    "timeline.step1.label": "1. التوجّه إلى:",
-    "timeline.step1.desc": "اتبع تعليمات قسم العمليات لهذا الموقع.",
-    "timeline.step2.label": "2. تأكيد الوصول",
-    "timeline.step2.desc": "استخدم زر \"تأكيد الوصول\" عند الوصول للموقع.",
-    "timeline.step3.label": "3. تأكيد التحميل",
-    "timeline.step3.desc": "استخدم زر \"تأكيد إتمام التحميل\" بعد الانتهاء.",
+  var currentLang = "en";
 
-    "footer.portal": "بوابة السائق",
+  var demoDrivers = [
+    {
+      driverId: "1023",
+      companyCode: "LXPRT",
+      nameEn: "Ahmed",
+      nameAr: "أحمد",
+      truck: "TRK-12",
+      nextCityEn: "Riyadh DC",
+      nextCityAr: "مستودع الرياض",
+      noteEn: "Pickup return load to Jeddah before 16:00.",
+      noteAr: "استلام حمولة راجعة إلى جدة قبل الساعة 16:00."
+    },
+    {
+      driverId: "2045",
+      companyCode: "LXPRT",
+      nameEn: "Omar",
+      nameAr: "عمر",
+      truck: "TRK-21",
+      nextCityEn: "Dammam Hub",
+      nextCityAr: "مركز الدمام",
+      noteEn: "Proceed empty to Dammam hub, wait for backhaul load.",
+      noteAr: "توجّه فارغًا إلى مركز الدمام ثم انتظر حمولة العودة."
+    }
+  ];
 
-    "driverDashboard.welcome": "مرحبًا، ",
-    "driverDashboard.driverInfoPrefix": "رقم السائق: ",
-    "driverDashboard.companyInfoPrefix": " · الشركة: ",
-    "driverDashboard.truckPrefix": " · الشاحنة: ",
-    "driverDashboard.noAssignment": "لا توجد رحلة مفعّلة حاليًا، يرجى انتظار توجيهات قسم العمليات.",
-    "driverDashboard.assignmentText": "الوجهة التالية: {city}. التعليمات: {note}",
+  var currentDriver = null;
 
-    "support.title": "خدمة العملاء",
-    "support.phoneLabel": "الهاتف:",
-    "support.emailLabel": "البريد الإلكتروني:",
-    "support.faxLabel": "الفاكس:"
+  function getLocalized(driver, key) {
+    if (!driver) return "";
+    if (currentLang === "ar") {
+      return driver[key + "Ar"] || driver[key + "En"] || "";
+    } else {
+      return driver[key + "En"] || driver[key + "Ar"] || "";
+    }
   }
-};
 
-/* ===== DRIVER DATA ===== */
-const demoDrivers = [
-  {
-    driverId: "1023",
-    companyCode: "LXPRT",
-    nameEn: "Ahmed",
-    nameAr: "أحمد",
-    truck: "TRK-12",
-    nextCityEn: "Riyadh DC",
-    nextCityAr: "مستودع الرياض",
-    noteEn: "Pickup return load to Jeddah before 16:00.",
-    noteAr: "استلام حمولة راجعة إلى جدة قبل الساعة 16:00."
-  },
-  {
-    driverId: "2045",
-    companyCode: "LXPRT",
-    nameEn: "Omar",
-    nameAr: "عمر",
-    truck: "TRK-21",
-    nextCityEn: "Dammam Hub",
-    nextCityAr: "مركز الدمام",
-    noteEn: "Proceed empty to Dammam hub, wait for backhaul load.",
-    noteAr: "توجّه فارغًا إلى مركز الدمام ثم انتظر حمولة العودة."
+  // ============ LANGUAGE ============
+  function setLanguage(lang) {
+    currentLang = lang;
+    var t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+
+    document.getElementById("btnLangEn").classList.toggle("active", lang === "en");
+    document.getElementById("btnLangAr").classList.toggle("active", lang === "ar");
+
+    document.getElementById("hdr_sub").textContent = t.hdr_sub;
+    document.getElementById("hdr_tag").textContent = t.hdr_tag;
+
+    document.getElementById("land_title").textContent = t.land_title;
+    document.getElementById("land_sub").textContent = t.land_sub;
+    document.getElementById("land_admin_title").textContent = t.land_admin_title;
+    document.getElementById("land_driver_title").textContent = t.land_driver_title;
+    document.getElementById("land_admin_btn").textContent = t.land_admin_btn;
+    document.getElementById("land_driver_btn").textContent = t.land_driver_btn;
+
+    document.getElementById("login_title").textContent = t.login_title;
+    document.getElementById("login_sub").textContent = t.login_sub;
+    document.getElementById("login_back").textContent = t.login_back;
+    document.getElementById("login_driverId_label").textContent = t.login_driverId_label;
+    document.getElementById("login_company_label").textContent = t.login_company_label;
+    document.getElementById("login_btn").textContent = t.login_btn;
+
+    document.getElementById("dash_logout").textContent = t.dash_logout;
+    document.getElementById("dash_assign_title").textContent = t.dash_assign_title;
+    document.getElementById("dash_route_title").textContent = t.dash_route_title;
+    document.getElementById("dash_route_sub").textContent = t.dash_route_sub;
+    document.getElementById("dash_btn_arrived").textContent = t.dash_btn_arrived;
+    document.getElementById("dash_btn_loaded").textContent = t.dash_btn_loaded;
+    document.getElementById("dash_note").textContent = t.dash_note;
+
+    document.getElementById("sup_title").textContent = t.sup_title;
+    document.getElementById("sup_phone_label").textContent = t.sup_phone_label;
+    document.getElementById("sup_email_label").textContent = t.sup_email_label;
+    document.getElementById("sup_fax_label").textContent = t.sup_fax_label;
+    document.getElementById("foot_portal").textContent = t.foot_portal;
+
+    var footer = document.getElementById("footerBox");
+    footer.className = (lang === "ar") ? "footer-right" : "footer-left";
+
+    document.getElementById("driverId").placeholder =
+      (lang === "en") ? "e.g. 1023" : "مثال: 1023";
+    document.getElementById("companyCode").placeholder =
+      (lang === "en") ? "e.g. LXPRT" : "مثال: LXPRT";
+
+    if (currentDriver) {
+      fillDriverDashboard(currentDriver);
+    }
   }
-];
 
-let currentDriver = null;
-let currentLang = "en";
-
-function getLocalized(driver, key) {
-  if (!driver) return "";
-  if (currentLang === "ar") {
-    return driver[key + "Ar"] || driver[key + "En"] || "";
-  } else {
-    return driver[key + "En"] || driver[key + "Ar"] || "";
+  // ============ VIEWS ============
+  function switchView(id) {
+    var views = document.querySelectorAll(".view");
+    for (var i = 0; i < views.length; i++) {
+      views[i].classList.remove("active");
+    }
+    document.getElementById(id).classList.add("active");
   }
-}
 
-/* ===== LANGUAGE SWITCH ===== */
-function setLanguage(lang) {
-  currentLang = lang;
+  function goToAdmin() {
+    window.location.href = "admin.html";
+  }
 
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  // ============ LOGIN ============
+  function driverLogin() {
+    var id = document.getElementById("driverId").value.trim();
+    var company = document.getElementById("companyCode").value.trim().toUpperCase();
+    var msg = document.getElementById("driverLoginMsg");
+    var t = translations[currentLang];
 
-  document.getElementById("btnLangEn").classList.toggle("active", lang === "en");
-  document.getElementById("btnLangAr").classList.toggle("active", lang === "ar");
+    if (!id || !company) {
+      msg.textContent = t.login_error_missing;
+      msg.classList.add("hint-error");
+      return;
+    }
+    msg.classList.remove("hint-error");
 
-  const footer = document.getElementById("footerBox");
-  footer.className = lang === "ar" ? "footer-right" : "footer-left";
+    var found = null;
+    for (var i = 0; i < demoDrivers.length; i++) {
+      var d = demoDrivers[i];
+      if (d.driverId === id && d.companyCode === company) {
+        found = d;
+        break;
+      }
+    }
 
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    const text = translations[lang][key];
-    if (text !== undefined) el.textContent = text;
+    if (found) {
+      currentDriver = found;
+      msg.textContent = "";
+      fillDriverDashboard(found);
+      switchView("view-driver-dashboard");
+    } else {
+      currentDriver = {
+        driverId: id,
+        companyCode: company,
+        nameEn: "Driver " + id,
+        nameAr: "السائق " + id,
+        truck: "—",
+        nextCityEn: "To be assigned",
+        nextCityAr: "سيتم التحديد لاحقًا",
+        noteEn: "Please contact dispatch for your next assignment.",
+        noteAr: "يرجى التواصل مع قسم العمليات لمعرفة الرحلة القادمة."
+      };
+      msg.textContent = t.login_generic;
+      fillDriverDashboard(currentDriver);
+      switchView("view-driver-dashboard");
+    }
+  }
+
+  // ============ DASHBOARD ============
+  function fillDriverDashboard(d) {
+    var t = translations[currentLang];
+
+    var name = getLocalized(d, "name");
+    var city = getLocalized(d, "nextCity");
+    var note = getLocalized(d, "note");
+
+    document.getElementById("driverWelcome").textContent =
+      t.dash_welcome_prefix + name;
+
+    var info = t.dash_driver_info + d.driverId +
+               t.dash_company_info + d.companyCode;
+    if (d.truck !== "—") {
+      info += t.dash_truck_info + d.truck;
+    }
+    document.getElementById("driverInfo").textContent = info;
+
+    var statusEl = document.getElementById("driverStatusPill");
+    statusEl.textContent = t.dash_status_ready;
+    statusEl.className = "status-pill status-ok";
+
+    var assignEl = document.getElementById("currentAssignment");
+    if (!city || !note) {
+      assignEl.textContent = t.dash_no_assign;
+    } else {
+      assignEl.textContent =
+        t.dash_assign_text.replace("{city}", city).replace("{note}", note);
+    }
+
+    updateTimeline(city);
+    document.getElementById("driverActionMsg").textContent = "";
+  }
+
+  function updateTimeline(city) {
+    var t = translations[currentLang];
+    var tl = document.getElementById("driverTimeline");
+    tl.innerHTML =
+      '<div class="timeline-item">' +
+        '<div class="timeline-label">' + t.tl1_label + ' ' + (city || "") + '</div>' +
+        '<div>' + t.tl1_desc + '</div>' +
+      '</div>' +
+      '<div class="timeline-item">' +
+        '<div class="timeline-label">' + t.tl2_label + '</div>' +
+        '<div>' + t.tl2_desc + '</div>' +
+      '</div>' +
+      '<div class="timeline-item">' +
+        '<div class="timeline-label">' + t.tl3_label + '</div>' +
+        '<div>' + t.tl3_desc + '</div>' +
+      '</div>';
+  }
+
+  // ============ BUTTON ACTIONS ============
+  function markArrived() {
+    var t = translations[currentLang];
+    var statusEl = document.getElementById("driverStatusPill");
+    statusEl.textContent = t.dash_status_arrived;
+    statusEl.className = "status-pill status-warn";
+    document.getElementById("driverActionMsg").textContent = t.dash_msg_arrived;
+  }
+
+  function markLoaded() {
+    var t = translations[currentLang];
+    var statusEl = document.getElementById("driverStatusPill");
+    statusEl.textContent = t.dash_status_loaded;
+    statusEl.className = "status-pill status-ok";
+    document.getElementById("driverActionMsg").textContent = t.dash_msg_loaded;
+  }
+
+  // ============ LOGOUT ============
+  function driverLogout() {
+    currentDriver = null;
+    document.getElementById("driverId").value = "";
+    document.getElementById("companyCode").value = "";
+    document.getElementById("driverLoginMsg").textContent = "";
+    switchView("view-driver-login");
+  }
+
+  // نربط الدوال في الـ window عشان onclick يلاقيها
+  window.setLanguage   = setLanguage;
+  window.switchView    = switchView;
+  window.goToAdmin     = goToAdmin;
+  window.driverLogin   = driverLogin;
+  window.markArrived   = markArrived;
+  window.markLoaded    = markLoaded;
+  window.driverLogout  = driverLogout;
+
+  // تشغيل اللغة الافتراضية بعد تحميل الصفحة
+  window.addEventListener("DOMContentLoaded", function () {
+    setLanguage("en");
   });
-
-  document.getElementById("driverId").placeholder =
-    lang === "en" ? "e.g. 1023" : "مثال: 1023";
-
-  document.getElementById("companyCode").placeholder =
-    lang === "en" ? "e.g. LXPRT" : "مثال: LXPRT";
-
-  if (currentDriver) fillDriverDashboard(currentDriver);
-}
-
-/* ===== VIEWS ===== */
-function switchView(id) {
-  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
-
-function goToAdmin() {
-  window.location.href = "admin.html";
-}
-
-/* ===== LOGIN ===== */
-function driverLogin() {
-  const id = document.getElementById("driverId").value.trim();
-  const company = document.getElementById("companyCode").value.trim().toUpperCase();
-  const msg = document.getElementById("driverLoginMsg");
-
-  if (!id || !company) {
-    msg.textContent = translations[currentLang]["driverLogin.errorMissing"];
-    msg.classList.add("hint-error");
-    return;
-  }
-
-  msg.classList.remove("hint-error");
-
-  const found = demoDrivers.find(d => d.driverId === id && d.companyCode === company);
-
-  if (found) {
-    currentDriver = found;
-    msg.textContent = "";
-    fillDriverDashboard(found);
-    switchView("view-driver-dashboard");
-  } else {
-    currentDriver = {
-      driverId: id,
-      companyCode: company,
-      nameEn: "Driver " + id,
-      nameAr: "السائق " + id,
-      truck: "—",
-      nextCityEn: "To be assigned",
-      nextCityAr: "سيتم التحديد لاحقًا",
-      noteEn: "Please contact dispatch for your next assignment.",
-      noteAr: "يرجى التواصل مع قسم العمليات لمعرفة الرحلة القادمة."
-    };
-
-    msg.textContent = translations[currentLang]["driverLogin.genericInfo"];
-
-    fillDriverDashboard(currentDriver);
-    switchView("view-driver-dashboard");
-  }
-}
-
-/* ===== DASHBOARD FILL ===== */
-function fillDriverDashboard(d) {
-  const t = translations[currentLang];
-
-  const name = getLocalized(d, "name");
-  const city = getLocalized(d, "nextCity");
-  const note = getLocalized(d, "note");
-
-  document.getElementById("driverWelcome").textContent =
-    t["driverDashboard.welcome"] + name;
-
-  let info =
-    t["driverDashboard.driverInfoPrefix"] + d.driverId +
-    t["driverDashboard.companyInfoPrefix"] + d.companyCode;
-
-  if (d.truck !== "—") {
-    info += t["driverDashboard.truckPrefix"] + d.truck;
-  }
-
-  document.getElementById("driverInfo").textContent = info;
-
-  document.getElementById("driverStatusPill").textContent =
-    t["driverDashboard.statusReady"];
-  document.getElementById("driverStatusPill"].className =
-    "status-pill status-ok";
-
-  if (!city || !note) {
-    document.getElementById("currentAssignment").textContent =
-      t["driverDashboard.noAssignment"];
-  } else {
-    document.getElementById("currentAssignment").textContent =
-      t["driverDashboard.assignmentText"]
-        .replace("{city}", city)
-        .replace("{note}", note);
-  }
-
-  updateTimeline(city);
-  document.getElementById("driverActionMsg").textContent = "";
-}
-
-/* ===== TIMELINE ===== */
-function updateTimeline(city) {
-  const t = translations[currentLang];
-
-  const timeline = document.getElementById("driverTimeline");
-  timeline.innerHTML = `
-    <div class="timeline-item">
-      <div class="timeline-label">${t["timeline.step1.label"]} ${city}</div>
-      <div>${t["timeline.step1.desc"]}</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-label">${t["timeline.step2.label"]}</div>
-      <div>${t["timeline.step2.desc"]}</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-label">${t["timeline.step3.label"]}</div>
-      <div>${t["timeline.step3.desc"]}</div>
-    </div>
-  `;
-}
-
-/* ===== BUTTON ACTIONS ===== */
-function markArrived() {
-  const t = translations[currentLang];
-  document.getElementById("driverStatusPill").textContent =
-    t["driverDashboard.statusArrived"];
-  document.getElementById("driverStatusPill").className =
-    "status-pill status-warn";
-
-  document.getElementById("driverActionMsg").textContent =
-    t["driverDashboard.msgArrived"];
-}
-
-function markLoaded() {
-  const t = translations[currentLang];
-  document.getElementById("driverStatusPill").textContent =
-    t["driverDashboard.statusLoaded"];
-  document.getElementById("driverStatusPill").className =
-    "status-pill status-ok";
-
-  document.getElementById("driverActionMsg").textContent =
-    t["driverDashboard.msgLoaded"];
-}
-
-/* ===== LOGOUT ===== */
-function driverLogout() {
-  currentDriver = null;
-  document.getElementById("driverId").value = "";
-  document.getElementById("companyCode").value = "";
-  document.getElementById("driverLoginMsg").textContent = "";
-  switchView("view-driver-login");
-}
-
-/* ===== INIT ===== */
-setLanguage("en");
 </script>
 
 </body>
