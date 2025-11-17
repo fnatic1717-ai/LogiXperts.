@@ -27,16 +27,16 @@
     }
 
     .app {
-      max-width: 880px;
+      max-width: 900px;
       width: 100%;
       background: #020617;
       border-radius: 32px;
       border: 1px solid #1f2937;
-      padding: 18px 18px 22px;
+      padding: 22px 20px 20px;
       box-shadow: 0 18px 40px rgba(0,0,0,.45);
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
     }
 
     header {
@@ -97,13 +97,13 @@
     }
 
     .lang-btn {
-      padding:4px 8px;
+      padding:4px 10px;
       font-size:11px;
       border:none;
       background:transparent;
       color:var(--muted);
       cursor:pointer;
-      min-width:34px;
+      min-width:36px;
     }
 
     .lang-btn.active {
@@ -126,7 +126,7 @@
       background: var(--card);
       border-radius: 22px;
       border: 1px solid var(--border);
-      padding: 16px;
+      padding: 18px;
       box-shadow: 0 8px 24px rgba(0,0,0,.45);
       margin-bottom: 10px;
     }
@@ -136,7 +136,7 @@
       justify-content:space-between;
       align-items:center;
       gap:8px;
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
 
     .card-title { font-size:17px; font-weight:600; }
@@ -180,21 +180,23 @@
 
     .landing-grid {
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:12px;
-      margin-top:12px;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:16px;
+      margin-top:10px;
     }
 
     .option-card {
       border-radius:18px;
       border:1px solid #1f2937;
       background:#020617;
-      padding:14px;
+      padding:18px 16px;
       display:flex;
       flex-direction:column;
       align-items:center;
+      justify-content:center;
       text-align:center;
-      gap:6px;
+      gap:10px;
+      min-height:150px; /* عشان ما تكون مضغوطة */
     }
 
     .option-title { font-size:15px; font-weight:600; }
@@ -295,12 +297,33 @@
     }
 
     footer {
-      margin-top:2px;
-      font-size:10px;
-      color:#4b5563;
-      text-align:right;
+      margin-top: 8px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
     }
-    footer span { color:#a7f3d0; }
+
+    .support-box {
+      margin-bottom: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: #d1d5db;
+    }
+
+    .support-box h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #22c55e;
+      font-weight: 700;
+    }
+
+    .footer-brand {
+      font-size: 10px;
+      color: #4b5563;
+    }
+    .footer-brand span {
+      color: #a7f3d0;
+    }
   </style>
 </head>
 <body>
@@ -344,7 +367,7 @@
             <!-- Admin option -->
             <div class="option-card">
               <div class="option-title" data-i18n="landing.adminTitle">
-                Admin
+                I am an Admin
               </div>
               <button class="btn btn-secondary"
                 onclick="goToAdmin()"
@@ -356,7 +379,7 @@
             <!-- Driver option -->
             <div class="option-card">
               <div class="option-title" data-i18n="landing.driverTitle">
-                Driver
+                I am a Driver
               </div>
               <button class="btn btn-primary"
                 onclick="switchView('view-driver-login')"
@@ -474,7 +497,18 @@
     </main>
 
     <footer>
-      <span>Logixperts</span> · <span data-i18n="footer.portal">Driver Portal</span> · Naqlthon 4
+      <div class="support-box">
+        <h3 data-i18n="support.title">Customer Support</h3>
+        <p>📞 <span data-i18n="support.phoneLabel">Phone:</span> +966 55 555 5555</p>
+        <p>📧 <span data-i18n="support.emailLabel">Email:</span> support@logixperts.com</p>
+        <p>📠 <span data-i18n="support.faxLabel">Fax:</span> 011-1234567</p>
+      </div>
+
+      <div class="footer-brand">
+        <span>Logixperts</span> ·
+        <span data-i18n="footer.portal">Driver Portal</span> ·
+        Naqlthon 4
+      </div>
     </footer>
   </div>
 
@@ -487,8 +521,8 @@
 
         "landing.title": "Who is using this portal?",
         "landing.subtitle": "Choose your role to continue.",
-        "landing.adminTitle": "Admin",
-        "landing.driverTitle": "Driver",
+        "landing.adminTitle": "I am an Admin",
+        "landing.driverTitle": "I am a Driver",
         "landing.adminButton": "Go to Admin Platform",
         "landing.driverButton": "Continue as Driver",
 
@@ -530,7 +564,12 @@
         "driverDashboard.noAssignment":
           "No active assignment yet. Please wait for dispatch instructions.",
         "driverDashboard.assignmentText":
-          "Next location: {city}. Instructions: {note}"
+          "Next location: {city}. Instructions: {note}",
+
+        "support.title": "Customer Support",
+        "support.phoneLabel": "Phone:",
+        "support.emailLabel": "Email:",
+        "support.faxLabel": "Fax:"
       },
 
       ar: {
@@ -539,8 +578,8 @@
 
         "landing.title": "من يستخدم هذه البوابة؟",
         "landing.subtitle": "اختر الدور المناسب للمتابعة.",
-        "landing.adminTitle": "إداري",
-        "landing.driverTitle": "سائق",
+        "landing.adminTitle": "أنا إداري",
+        "landing.driverTitle": "أنا سائق",
         "landing.adminButton": "دخول لوحة الإدارة",
         "landing.driverButton": "المتابعة كسائق",
 
@@ -582,7 +621,12 @@
         "driverDashboard.noAssignment":
           "لا توجد رحلة مفعّلة حاليًا، يرجى انتظار توجيهات قسم العمليات.",
         "driverDashboard.assignmentText":
-          "الوجهة التالية: {city}. التعليمات: {note}"
+          "الوجهة التالية: {city}. التعليمات: {note}",
+
+        "support.title": "خدمة العملاء",
+        "support.phoneLabel": "الهاتف:",
+        "support.emailLabel": "البريد الإلكتروني:",
+        "support.faxLabel": "الفاكس:"
       }
     };
 
@@ -636,7 +680,6 @@
       if (currentDriver) {
         fillDriverDashboard(currentDriver);
       } else {
-        // update default timeline text when no driver
         updateTimelineFor(null);
       }
     }
@@ -650,7 +693,7 @@
     function goToAdmin() {
       // رابط لوحة الإدارة
       window.location.href = "admin.html";
-      // أو لو عندك رابط جيتهاب:
+      // أو لو عندك رابط GitHub Pages:
       // window.location.href = "https://rahmone95.github.io/LogiXperts-/";
     }
 
@@ -730,7 +773,10 @@
     function updateTimelineFor(driver) {
       const t = translations[currentLang];
       const timeline = document.getElementById("driverTimeline");
-      const city = driver && driver.nextCity ? driver.nextCity : (currentLang === "ar" ? "الوجهة القادمة" : "Next stop");
+      const city =
+        driver && driver.nextCity
+          ? driver.nextCity
+          : (currentLang === "ar" ? "الوجهة القادمة" : "Next stop");
 
       timeline.innerHTML = `
         <div class="timeline-item">
