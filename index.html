@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Logixperts - Driver Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --card: #111827;
+      --accent: #22c55e;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .app {
+      max-width: 900px;
+      width: 100%;
+      background: #020617;
+      border-radius: 32px;
+      border: 1px solid #1f2937;
+      padding: 20px 20px 26px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 14px 6px;
+      border-radius: 26px;
+      background: radial-gradient(circle at left top, #22c55e20, #020617 55%);
+      border: 1px solid #1f2937;
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+
+    .badge-logo {
+      width: 42px; height: 42px;
+      border-radius: 18px;
+      border: 1px solid #16a34a;
+      background: radial-gradient(circle at 30% 30%, #22c55e, #16a34a);
+      display: flex; align-items: center; justify-content: center;
+      color: #ecfdf5; font-weight: 800; font-size: 18px;
+      box-shadow: 0 10px 25px rgba(34,197,94,.55);
+    }
+
+    .brand-text h1 {
+      font-size: 20px; font-weight: 800;
+      letter-spacing: .06em; text-transform: uppercase;
+    }
+
+    .brand-text span {
+      display:block; font-size:11px; color:var(--muted);
+      text-transform:uppercase; letter-spacing:.12em; margin-top:2px;
+    }
+
+    .tag-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background:#020617b3;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:11px;
+      color:var(--muted);
+    }
+
+    main { margin-top: 8px; }
+
+    .view { display: none; animation: fade .25s ease-out; }
+    .view.active { display: block; }
+
+    @keyframes fade {
+      from { opacity:0; transform:translateY(4px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.45);
+      margin-bottom: 14px;
+    }
+
+    .card-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:10px;
+      margin-bottom:10px;
+    }
+
+    .card-title { font-size:18px; font-weight:600; }
+    .card-sub   { font-size:13px; color:var(--muted); }
+
+    .btn {
+      border:none;
+      padding:10px 16px;
+      border-radius:999px;
+      font-size:14px;
+      cursor:pointer;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+    }
+
+    .btn-primary {
+      background:linear-gradient(to right,#16a34a,#22c55e);
+      color:#ecfdf5;
+      box-shadow:0 12px 24px rgba(34,197,94,.45);
+    }
+
+    .btn-secondary {
+      background:#020617;
+      border:1px solid #374151;
+      color:#e5e7eb;
+    }
+
+    .btn-ghost {
+      background:transparent;
+      border:1px solid #374151;
+      color:#9ca3af;
+    }
+
+    .btn-sm {
+      padding:6px 12px;
+      font-size:12px;
+    }
+
+    .landing-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:10px;
+    }
+
+    .option-card {
+      border-radius:20px;
+      border:1px solid #1f2937;
+      background:#020617;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .option-title { font-size:16px; font-weight:600; }
+    .option-desc  { font-size:13px; color:var(--muted); }
+
+    .badge {
+      display:inline-flex;
+      align-items:center;
+      padding:3px 8px;
+      border-radius:999px;
+      font-size:11px;
+      border:1px solid #1f2937;
+      color:#9ca3af;
+      gap:6px;
+    }
+    .badge-dot {
+      width:7px;height:7px;border-radius:999px;background:#22c55e;
+    }
+
+    .form-grid {
+      display:grid;
+      gap:10px;
+      margin-top:6px;
+    }
+
+    label {
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:2px;
+    }
+
+    .field {
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    input {
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid #374151;
+      background:#020617;
+      color:var(--text);
+      font-size:13px;
+    }
+    input:focus {
+      border-color:#22c55e;
+      outline:none;
+    }
+
+    .hint {
+      font-size:11px;
+      color:var(--muted);
+      margin-top:4px;
+    }
+    .hint-error {
+      color:#fecaca;
+    }
+
+    .two-column {
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,0.9fr);
+      gap:14px;
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        grid-template-columns:minmax(0,1fr);
+      }
+    }
+
+    .status-pill {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:4px 10px;
+      border-radius:999px;
+      font-size:11px;
+    }
+    .status-ok {
+      background:#052e16;
+      border:1px solid #16a34a;
+      color:#bbf7d0;
+    }
+    .status-warn {
+      background:#451a03;
+      border:1px solid #f97316;
+      color:#fed7aa;
+    }
+
+    .timeline {
+      margin-top:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .timeline-item {
+      padding:6px 0;
+      border-bottom:1px solid #111827;
+    }
+    .timeline-item:last-child {
+      border-bottom:none;
+    }
+    .timeline-label {
+      font-size:12px;
+      color:#e5e7eb;
+      margin-bottom:2px;
+    }
+
+    footer {
+      margin-top:4px;
+      font-size:10px;
+      color:#4b5563;
+      text-align:right;
+    }
+    footer span { color:#a7f3d0; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <div class="badge-logo">Lx</div>
+        <div class="brand-text">
+          <h1>Logixperts</h1>
+          <span>Smart Load – Driver Portal</span>
+        </div>
+      </div>
+
+      <span class="tag-pill">
+        Driver &amp; Admin Access
+      </span>
+    </header>
+
+    <main>
+      <!-- VIEW 1: LANDING SCREEN -->
+      <section id="view-landing" class="view active">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Who is using this portal?</div>
+              <div class="card-sub">
+                Choose your role to continue. الإداري أو السائق يختار ما يناسبه.
+              </div>
+            </div>
+          </div>
+
+          <div class="landing-grid">
+            <!-- Admin option -->
+            <div class="option-card">
+              <div class="option-title">I am an Admin</div>
+              <div class="option-desc">
+                Access the full Smart Load Analyzer: fleet dashboard, optimization, and analytics.
+              </div>
+              <span class="badge">
+                <span class="badge-dot"></span>
+                For operations / logistics managers
+              </span>
+              <button class="btn btn-secondary" style="margin-top:10px;"
+                onclick="goToAdmin()">
+                Go to Admin Platform
+              </button>
+            </div>
+
+            <!-- Driver option -->
+            <div class="option-card">
+              <div class="option-title">I am a Driver</div>
+              <div class="option-desc">
+                View your current assignment, next stop, and instructions from your company.
+              </div>
+              <span class="badge">
+                <span class="badge-dot"></span>
+                For truck drivers
+              </span>
+              <button class="btn btn-primary" style="margin-top:10px;"
+                onclick="switchView('view-driver-login')">
+                Continue as Driver
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: DRIVER LOGIN -->
+      <section id="view-driver-login" class="view">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Driver Login</div>
+              <div class="card-sub">
+                Enter your Driver ID and Company Code. بيانات بسيطة للدخول.
+              </div>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="switchView('view-landing')">
+              ⬅ Back
+            </button>
+          </div>
+
+          <form class="form-grid" onsubmit="event.preventDefault(); driverLogin();">
+            <div class="field">
+              <label for="driverId">Driver ID</label>
+              <input id="driverId" type="text" placeholder="e.g. 1023" />
+            </div>
+            <div class="field">
+              <label for="companyCode">Company Code</label>
+              <input id="companyCode" type="text" placeholder="e.g. LXPRT" />
+            </div>
+            <button class="btn btn-primary" type="submit" style="margin-top:4px;">
+              Login as Driver
+            </button>
+            <p id="driverLoginMsg" class="hint"></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- VIEW 3: DRIVER DASHBOARD -->
+      <section id="view-driver-dashboard" class="view">
+        <div class="two-column">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title" id="driverWelcome">
+                  Welcome, Driver
+                </div>
+                <div class="card-sub" id="driverInfo">
+                  —
+                </div>
+              </div>
+              <button class="btn btn-ghost btn-sm" onclick="driverLogout()">
+                Logout
+              </button>
+            </div>
+
+            <div>
+              <div class="status-pill status-ok" id="driverStatusPill">
+                ✅ Status: Ready for assignment
+              </div>
+
+              <div style="margin-top:12px;">
+                <div style="font-size:13px;font-weight:600;margin-bottom:4px;">
+                  Current Assignment
+                </div>
+                <div style="font-size:13px;color:var(--muted);" id="currentAssignment">
+                  No active assignment yet. Please wait for dispatch instructions.
+                </div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <button class="btn btn-secondary btn-sm" onclick="markArrived()">
+                  Mark as Arrived at Location
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="markLoaded()" style="margin-inline-start:6px;">
+                  Confirm Loading Complete
+                </button>
+              </div>
+
+              <p class="hint" id="driverActionMsg"></p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Today's Route & Instructions</div>
+                <div class="card-sub">
+                  Simple guidance from operations — where to go and what to do.
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline" id="driverTimeline">
+              <div class="timeline-item">
+                <div class="timeline-label">1. Stand by</div>
+                <div>Wait for dispatch to assign you a new trip.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-label">2. Follow instructions</div>
+                <div>Once assigned, check pickup warehouse, city, and time window.</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-label">3. Confirm steps</div>
+                <div>Use the buttons above to confirm arrival and loading completion.</div>
+              </div>
+            </div>
+
+            <p class="hint" style="margin-top:8px;">
+              This driver view is a simple prototype. الإدارة يمكنها تحديث التوجيهات حسب كل سائق.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Logixperts</span> · Driver Portal · Naqlthon 4
+    </footer>
+  </div>
+
+  <script>
+    // Simple mock "driver database" for the demo
+    const demoDrivers = [
+      {
+        driverId: "1023",
+        companyCode: "LXPRT",
+        name: "Ahmed",
+        truck: "TRK-12",
+        nextCity: "Riyadh DC",
+        note: "Pickup return load to Jeddah before 16:00."
+      },
+      {
+        driverId: "2045",
+        companyCode: "LXPRT",
+        name: "Omar",
+        truck: "TRK-21",
+        nextCity: "Dammam Hub",
+        note: "Proceed empty to Dammam hub, wait for backhaul load."
+      }
+    ];
+
+    let currentDriver = null;
+
+    function switchView(id) {
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      const target = document.getElementById(id);
+      if (target) target.classList.add("active");
+    }
+
+    function goToAdmin() {
+      // هنا تحط رابط موقع الإدارة:
+      // لو ملف الإدارة اسمه admin.html في نفس المشروع:
+      window.location.href = "admin.html";
+      // أو لو عندك رابط على GitHub Pages استخدمه بداله
+      // window.location.href = "https://rahmone95.github.io/LogiXperts-/";
+    }
+
+    function driverLogin() {
+      const id = document.getElementById("driverId").value.trim();
+      const company = document.getElementById("companyCode").value.trim().toUpperCase();
+      const msg = document.getElementById("driverLoginMsg");
+
+      if (!id || !company) {
+        msg.textContent = "Please enter both Driver ID and Company Code.";
+        msg.classList.remove("hint-error");
+        return;
+      }
+
+      // search in demo drivers
+      const found = demoDrivers.find(d => d.driverId === id && d.companyCode === company);
+
+      if (found) {
+        currentDriver = found;
+        msg.textContent = "";
+        fillDriverDashboard(found);
+        switchView("view-driver-dashboard");
+      } else {
+        // still allow login as "generic driver"
+        currentDriver = {
+          driverId: id,
+          companyCode: company,
+          name: "Driver " + id,
+          truck: "—",
+          nextCity: "To be assigned",
+          note: "Please contact dispatch for your next assignment."
+        };
+        msg.textContent = "Logged in as generic driver (demo).";
+        msg.classList.remove("hint-error");
+        fillDriverDashboard(currentDriver);
+        switchView("view-driver-dashboard");
+      }
+    }
+
+    function fillDriverDashboard(driver) {
+      const welcome = document.getElementById("driverWelcome");
+      const info = document.getElementById("driverInfo");
+      const assignment = document.getElementById("currentAssignment");
+      const statusPill = document.getElementById("driverStatusPill");
+      const timeline = document.getElementById("driverTimeline");
+      const actionMsg = document.getElementById("driverActionMsg");
+
+      welcome.textContent = "Welcome, " + driver.name;
+      info.textContent =
+        "Driver ID: " + driver.driverId +
+        " · Company: " + driver.companyCode +
+        (driver.truck && driver.truck !== "—" ? " · Truck: " + driver.truck : "");
+
+      statusPill.textContent = "✅ Status: Ready for assignment";
+      statusPill.className = "status-pill status-ok";
+
+      assignment.textContent =
+        "Next location: " + driver.nextCity +
+        ". Instructions: " + driver.note;
+
+      // Simple timeline, can be customized more later
+      timeline.innerHTML = `
+        <div class="timeline-item">
+          <div class="timeline-label">1. Go to: ${driver.nextCity}</div>
+          <div>Follow dispatch instructions for this location.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">2. Confirm arrival</div>
+          <div>Use "Mark as Arrived" when you reach the location.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-label">3. Confirm loading</div>
+          <div>Use "Confirm Loading Complete" after finishing loading.</div>
+        </div>
+      `;
+
+      actionMsg.textContent = "";
+    }
+
+    function markArrived() {
+      if (!currentDriver) return;
+      const statusPill = document.getElementById("driverStatusPill");
+      const actionMsg = document.getElementById("driverActionMsg");
+
+      statusPill.textContent = "🟡 Status: Arrived at location, waiting for loading";
+      statusPill.className = "status-pill status-warn";
+
+      actionMsg.textContent = "Arrival confirmed. Dispatch will see this status.";
+    }
+
+    function markLoaded() {
+      if (!currentDriver) return;
+      const statusPill = document.getElementById("driverStatusPill");
+      const actionMsg = document.getElementById("driverActionMsg");
+
+      statusPill.textContent = "✅ Status: Loaded – ready to depart";
+      statusPill.className = "status-pill status-ok";
+
+      actionMsg.textContent = "Loading confirmed. You are ready to depart.";
+    }
+
+    function driverLogout() {
+      currentDriver = null;
+      document.getElementById("driverId").value = "";
+      document.getElementById("companyCode").value = "";
+      document.getElementById("driverLoginMsg").textContent = "";
+      switchView("view-driver-login");
+    }
+  </script>
+</body>
+</html>
